@@ -11,18 +11,26 @@ permissions:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Set up QEMU (for cross-building)
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: all
+
+      - name: Set up BuildX
+        uses: docker/setup-buildx-action@v3
+
       - name: Check out source
         uses: actions/checkout@v4
 
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build Docker image
+      - name: Build and push Docker image for ARM64
         run: |
-          docker build -f NewsletterWebApi/Dockerfile -t ghcr.io/igorcouto/newsletter-api:latest .
-    
-      - name: Push Docker image
-        run: |
-          docker push ghcr.io/igorcouto/newsletter-api:latest
+          docker buildx build \
+            --platform linux/arm64 \
+            -f NewsletterWebApi/Dockerfile \
+            -t ghcr.io/igorcouto/newsletter-api:latest \
+            --push \
+            .
