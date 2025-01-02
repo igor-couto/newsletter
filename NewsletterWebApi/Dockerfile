@@ -1,5 +1,5 @@
 # Build Stage
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine3.20-arm64v8 AS build
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:9.0-alpine3.20-arm64v8 AS build
 WORKDIR /source
 COPY . .
 RUN dotnet restore NewsletterWebApi --disable-parallel
