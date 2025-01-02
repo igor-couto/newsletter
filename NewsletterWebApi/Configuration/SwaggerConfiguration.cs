@@ -71,13 +71,13 @@ public static class SwaggerConfiguration
 
         app.UseSwagger(c =>
         {
-            c.RouteTemplate = "/api-docs/{documentName}/swagger.json";
+            c.RouteTemplate = "/newsletter-api/api-docs/{documentName}/swagger.json";
         });
 
         app.UseSwaggerUI(options =>
         {
             options.DocumentTitle = title;
-            options.SwaggerEndpoint($"/api-docs/v{version.Major}.{version.Minor}/swagger.json", title);
+            options.SwaggerEndpoint($"/newsletter-api/api-docs/v{version.Major}.{version.Minor}/swagger.json", title);
             options.RoutePrefix = "api/swagger";
             options.DefaultModelsExpandDepth(-1);
             options.DocExpansion(DocExpansion.None);
