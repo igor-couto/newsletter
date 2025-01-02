@@ -24,6 +24,6 @@ jobs:
           docker build \
             --platform linux/arm64 \
             -f NewsletterWebApi/Dockerfile \
-            -t ghcr.io/igorcouto/newsletter:latest \
+            -t ghcr.io/igor-couto/newsletter:latest \
             --push \
             .
