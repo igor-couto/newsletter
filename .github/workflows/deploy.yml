@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -26,7 +30,7 @@ jobs:
           ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
             cd /home/$SSH_USER/apps/newsletter &&
             echo 'Pulling latest image...' &&
-            docker pull ghcr.io/igor-couto/newsletter-api:latest &&
+            docker pull ghcr.io/igor-couto/newsletter:latest &&
             sudo docker compose down &&
             sudo docker compose up -d
           "
