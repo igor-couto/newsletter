@@ -2,10 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine3.20-arm64v8 AS build
 WORKDIR /source
 COPY . .
-RUN dotnet --version
-RUN ls
 RUN dotnet restore NewsletterWebApi --disable-parallel
-RUN dotnet publish NewsletterWebApi -c Release -o /app --no-restore --runtime linux-musl-arm64 --self-contained true
+RUN dotnet publish NewsletterWebApi -c Release -o /app --no-restore --self-contained true
 
 # Serve Stage
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine3.20-arm64v8 AS run
