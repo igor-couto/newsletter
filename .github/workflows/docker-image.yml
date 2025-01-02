@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Set up QEMU (for cross-building)
         uses: docker/setup-qemu-action@v3
