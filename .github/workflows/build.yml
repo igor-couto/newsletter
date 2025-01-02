@@ -7,12 +7,24 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout GitHub Action
-        uses: actions/checkout@main
 
-      - name: Build Projects
+      - name: 🛠️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.x
+      
+      - name: 📦 Restore Dependencies
         run: |
+          dotnet restore ./NewsletterSDK
+          dotnet restore ./NewsletterMigrations
+          dotnet restore ./NewsletterWebApi
+      
+      - name: 🏗️ Build Project
+        run: | 
           echo github.ref
-          dotnet build NewsletterMigrations
-          dotnet build NewsletterSDK
-          dotnet build NewsletterWebApi
+          dotnet build NewsletterMigrations --no-restore
+          dotnet build NewsletterSDK --no-restore
+          dotnet build NewsletterWebApi --no-restore
