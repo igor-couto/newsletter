@@ -5,6 +5,7 @@ on: push
     - 'README.md'
     - 'CODE_OF_CONDUCT.md'
     - 'SECURITY.md'
+    - 'docs/**'
 
 jobs:
 
