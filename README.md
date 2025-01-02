@@ -7,9 +7,7 @@ You can run it locally or visit this publised instance here:
 
 ## Projects
 
-### Database
-
-A docker-compose.yml file is provided to quickly set up the database.
+![System Diagram](https://github.com/igor-couto/newsletter/blob/main/docs/newsletter-diagram.png)
 
 ### Migrations Project
 
@@ -52,6 +50,12 @@ A simple frontend built with HTML, CSS, and JavaScript.
 Provides functionalities to create subscribers, publications and management functions.
 
 **Note:** This is a demonstration frontend and not intended for production use.
+
+### Database
+
+A docker-compose.yml file is provided to quickly set up the database.
+
+![Database Schema](https://github.com/igor-couto/newsletter/blob/main/docs/database-schema.png)
 
 ## How It Works
 
