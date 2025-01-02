@@ -38,7 +38,7 @@ public static class SwaggerConfiguration
                 In = ParameterLocation.Header, 
                 Name = "X-Api-Key",
                 Type = SecuritySchemeType.ApiKey, 
-                Scheme = "ApiKeyScheme", 
+                Scheme = "ApiKeyScheme"
             });
 
             swaggerGenOptions.AddSecurityRequirement(new OpenApiSecurityRequirement 
@@ -69,11 +69,15 @@ public static class SwaggerConfiguration
         var version = app.ApplicationServices.GetRequiredService<IOptions<VersionOptions>>().Value;
         var title = $"Newsletter API v{version.Major}.{version.Minor}";
 
-        app.UseSwagger();
+        app.UseSwagger(c =>
+        {
+            c.RouteTemplate = "newsletter-api/api-docs/{documentName}/swagger.json";
+        });
+
         app.UseSwaggerUI(options =>
         {
             options.DocumentTitle = title;
-            options.SwaggerEndpoint($"/swagger/v{version.Major}.{version.Minor}/swagger.json", title);
+            options.SwaggerEndpoint($"/newsletter-api/api-docs/v{version.Major}.{version.Minor}/swagger.json", title);
             options.RoutePrefix = "api/swagger";
             options.DefaultModelsExpandDepth(-1);
             options.DocExpansion(DocExpansion.None);
