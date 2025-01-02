@@ -18,13 +18,13 @@ jobs:
     runs-on: self-hosted
     steps:
     
-      - name: Check out source
+      - name: 🛠️ Check out source
         uses: actions/checkout@v4
 
-      - name: Log in to container registry
+      - name: 🔐 Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build and push Docker image for ARM64
+      - name: 🚀 Build and push Docker image for ARM64
         run: |
           docker build \
             --platform linux/arm64 \
