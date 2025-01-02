@@ -14,7 +14,6 @@ ENV ASPNETCORE_HTTP_PORT=50040
 
 WORKDIR /app
 COPY --from=build /app .
-COPY --from=build /NewsletterWebApi/ /app/NewsletterWebApi
 USER dotnetuser
 
 EXPOSE 50040 50041
