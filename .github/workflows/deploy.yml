@@ -40,6 +40,7 @@ jobs:
               --name newsletter-api \
               --restart=always \
               -p 50040:50040 \
+              -p 50041:50041 \
               ghcr.io/igor-couto/newsletter:latest
           "
         shell: bash
