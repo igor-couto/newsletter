@@ -4,7 +4,7 @@ WORKDIR /source
 COPY . .
 RUN dotnet --version
 RUN ls
-RUN dotnet restore NewsletterWebApi --disable-parallel --runtime linux-musl-arm64
+RUN dotnet restore NewsletterWebApi --disable-parallel
 RUN dotnet publish NewsletterWebApi -c Release -o /app --no-restore --runtime linux-musl-arm64 --self-contained true
 
 # Serve Stage
