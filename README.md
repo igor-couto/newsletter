@@ -1,6 +1,6 @@
 # Newsletter Application
 
-[![Build](https://github.com/igor-couto/newsletter/actions/workflows/build.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/build.yml)
+[![Build](https://github.com/igor-couto/newsletter/actions/workflows/build.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/build.yml) [![Push Docker Image](https://github.com/igor-couto/newsletter/actions/workflows/docker-image.yml/badge.svg?event=push)](https://github.com/igor-couto/newsletter/actions/workflows/docker-image.yml)
 
 This repository contains a complete newsletter management system. Below is an overview of the project and its functionality.
 You can run it locally or visit this publised instance here:
