@@ -12,7 +12,7 @@ ENV ASPNETCORE_URLS="http://+:50040;https://+:50041"
 ENV ASPNETCORE_HTTPS_PORT=50041
 ENV ASPNETCORE_HTTP_PORT=50040
 
-RUN apt-get update && apt-get upgrade -y
+RUN apk update && apk upgrade
 RUN adduser --disabled-password --home /app dotnetuser && chown -R dotnetuser /app
 
 WORKDIR /app
