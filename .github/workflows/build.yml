@@ -1,6 +1,10 @@
 name: Build
 
 on: push
+  paths-ignore:
+    - 'README.md'
+    - 'CODE_OF_CONDUCT.md'
+    - 'SECURITY.md'
 
 jobs:
 
