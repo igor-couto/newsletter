@@ -12,14 +12,7 @@ jobs:
   build-and-push-image:
     runs-on: self-hosted
     steps:
-      - name: Set up QEMU (for cross-building)
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: all
-
-      - name: Set up BuildX
-        uses: docker/setup-buildx-action@v3
-
+    
       - name: Check out source
         uses: actions/checkout@v4
 
