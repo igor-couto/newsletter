@@ -39,8 +39,7 @@ jobs:
             sudo docker run -d \
               --name newsletter-api \
               --restart=always \
-              -p 50040:50040 \
-              -p 50041:50041 \
+              -p 50040:50040
               ghcr.io/igor-couto/newsletter:latest
           "
         shell: bash
