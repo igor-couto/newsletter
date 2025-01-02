@@ -3,7 +3,11 @@ name: Deploy to Server
 on:
   push:
     branches: [ "main" ]
-
+    paths-ignore:
+      - 'README.md'
+      - 'CODE_OF_CONDUCT.md'
+      - 'SECURITY.md'
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -39,7 +43,7 @@ jobs:
             sudo docker run -d \
               --name newsletter-api \
               --restart=always \
-              -p 50040:50040
+              -p 50040:50040 \
               ghcr.io/igor-couto/newsletter:latest
           "
         shell: bash
