@@ -16,7 +16,7 @@ public static class DatabaseConfiguration
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         if (string.IsNullOrEmpty(connectionString))
             throw new InvalidOperationException("The ConnectionString property has not been initialized.");
-        
+
         services.AddScoped<IDbConnection>(_ => new NpgsqlConnection(connectionString));
 
         return services;

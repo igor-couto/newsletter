@@ -9,4 +9,5 @@ public record Publication
     public required DateTime CreatedAt { get; set; }
     public required DateTime SendingDate { get; set; }
     public DateTime? DeletedAt { get; set; }
+    public const short TitleMaxLength = 512; 
 }

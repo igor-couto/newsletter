@@ -12,7 +12,7 @@ internal class SubscriptionService(SubscriptionsRepository subscriptionsReposito
         if(!EmailValidator.IsValid(email))
             throw new ArgumentException("The email is not valid.");
 
-        if(name is not null && name.Length > 255 && name.All(char.IsWhiteSpace))
+        if(name is not null && (name.Length > Subscriber.NameMaxLength || name.All(char.IsWhiteSpace)))
             throw new ArgumentException("The name is not valid.");
 
         var subscriberAlreadyExists = await _subscriptionsRepository.SubscriberExists(email);

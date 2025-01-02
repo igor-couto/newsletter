@@ -15,7 +15,8 @@ public static class NewsletterServiceCollectionExtensions
 
             var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(assemblyDirectory)
-                .AddJsonFile("appsettings.sdk.json", optional: false, reloadOnChange: false);
+                .AddJsonFile("appsettings.sdk.json", optional: false, reloadOnChange: false)
+                .AddEnvironmentVariables();
             
             configuration = configBuilder.Build();
         }

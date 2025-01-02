@@ -117,20 +117,36 @@ internal class PublicationRepository(IDbConnection dbConnection)
 
     internal async Task Delete(Guid id)
     {
-        var parameters = new 
+        var status = await _dbConnection.QuerySingleOrDefaultAsync<short?>(
+            @"SELECT status_id FROM publications WHERE id = @Id",
+            new { Id = id }
+        );
+
+        if (status is null)
+            throw new KeyNotFoundException($"Publication with ID {id} was not found.");
+
+        if (status.Value != (short)PublicationStatus.Pending)
+        {
+            throw new InvalidOperationException(
+                $"Publication with ID {id} is in status {status}, not Pending."
+            );
+        }
+
+        var parameters = new
         {
             Id = id,
-            PublicationStatus = PublicationStatus.Deleted,
-            DeletedAt = DateTime.UtcNow 
+            PublicationStatus = (short)PublicationStatus.Deleted,
+            DeletedAt = DateTime.UtcNow
         };
 
-        var command = 
-            $@"UPDATE publications 
-            SET status_id = @DeletedStatus, deleted_at = @DeletedAt 
-            WHERE id = @Id AND status_id = {(short) PublicationStatus.Pending};";
+        var command =
+            $@"UPDATE publications
+            SET status_id = @PublicationStatus, deleted_at = @DeletedAt
+            WHERE id = @Id;";
 
         var affectedRows = await _dbConnection.ExecuteAsync(command, parameters);
-        if(affectedRows <= 0) 
-            throw new Exception("Failed to delete publication");
+
+        if (affectedRows == 0)
+            throw new Exception("Publication was removed between the status check and this update.");
     }
 }

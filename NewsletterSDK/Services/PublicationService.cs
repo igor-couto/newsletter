@@ -10,11 +10,11 @@ internal class PublicationService(PublicationRepository publicationRepository, D
 
     public async Task<Publication> Publish(string content, string title, DateTime? sendingDate = null, CancellationToken cancellationToken = default)
     {
-        if(string.IsNullOrWhiteSpace(title) || title.Length > 512)
+        if(string.IsNullOrWhiteSpace(title) || title.Length > Publication.TitleMaxLength)
             throw new ArgumentException("The title is invalid. It should not be empty or white space and should be less than 512 charactes long.");
 
         if(string.IsNullOrWhiteSpace(content))
-            throw new ArgumentException("The content is empty or white space.");
+            throw new ArgumentException("The content is null, empty or white space.");
 
         if(sendingDate is not null)
         {

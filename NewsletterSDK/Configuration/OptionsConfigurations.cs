@@ -14,9 +14,9 @@ public static class OptionsConfiguration
     {
         ArgumentNullException.ThrowIfNull(services);
 
-        using var tempServiceProvider = services.BuildServiceProvider();
+        using var serviceProvider = services.BuildServiceProvider();
 
-        var logger = tempServiceProvider
+        var logger = serviceProvider
             .GetRequiredService<ILoggerFactory>()
             .CreateLogger("OptionsConfiguration");
 
@@ -61,7 +61,7 @@ public static class OptionsConfiguration
 
 public class ConnectionStringsOptions
 {
-    public required string DefaultConnection { get; init; }
+    public string? DefaultConnection { get; set; }
 
     public void LogConnectionStringDetails(ILogger logger)
     {
