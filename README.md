@@ -1,11 +1,11 @@
 # Newsletter Application
 
-[![Build](https://github.com/igor-couto/newsletter/actions/workflows/build.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/build.yml) [![Push Docker Image](https://github.com/igor-couto/newsletter/actions/workflows/docker-image.yml/badge.svg?event=push)](https://github.com/igor-couto/newsletter/actions/workflows/docker-image.yml) [![Deploy to Server](https://github.com/igor-couto/newsletter/actions/workflows/deploy.yml/badge.svg?event=deployment)](https://github.com/igor-couto/newsletter/actions/workflows/deploy.yml)
+[![CI/CD Pipeline](https://github.com/igor-couto/newsletter/actions/workflows/pipeline.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/pipeline.yml)
 
 This repository contains a complete newsletter management system. Below is an overview of the project and its functionality.
 You can run it locally or visit this publised instance here:
 -  [igorcouto.com/newsletter](igorcouto.com/newsletter)
--  [igorcouto.com/newsletter/api/swagger](igorcouto.com/newsletter/api/swagger)
+-  [igorcouto.com/newsletter/api/swagger](igorcouto.com/newsletter-api/api/swagger)
 
 ## Projects
 
