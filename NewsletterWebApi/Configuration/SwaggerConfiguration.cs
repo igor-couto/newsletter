@@ -71,7 +71,7 @@ public static class SwaggerConfiguration
 
         app.UseSwagger(c =>
         {
-            c.RouteTemplate = "/newsletter-api/api-docs/{documentName}/swagger.json";
+            c.RouteTemplate = "api-docs/{documentName}/swagger.json";
         });
 
         app.UseSwaggerUI(options =>

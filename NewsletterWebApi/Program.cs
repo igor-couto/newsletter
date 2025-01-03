@@ -25,6 +25,7 @@ builder.Services
 
 var app = builder.Build();
 
+app.UsePathBase("/newsletter-api");
 app.UseCorsConfiguration();
 app.UseCompression();
 app.UseCache();
