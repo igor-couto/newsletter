@@ -4,8 +4,8 @@
 
 This repository contains a complete newsletter management system. Below is an overview of the project and its functionality.
 You can run it locally or visit this publised instance here:
--  [igorcouto.com/newsletter](igorcouto.com/newsletter)
--  [igorcouto.com/newsletter-api/api/swagger](igorcouto.com/newsletter-api/api/swagger)
+-  [https://igorcouto.com/newsletter](https://igorcouto.com/newsletter)
+-  [https://igorcouto.com/newsletter-api/api/swagger](https://igorcouto.com/newsletter-api/api/swagger)
 
 ## Projects
 
