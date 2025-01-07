@@ -1,4 +1,5 @@
 using FluentMigrator;
+using NewsletterSDK.Models;
 
 namespace NewsletterMigrations;
 
@@ -13,7 +14,7 @@ public class CreateSubscribersTable : Migration
                 .NotNullable()
                 .PrimaryKey()
             .WithColumn("name")
-                .AsString(255)
+                .AsString(Subscriber.NameMaxLength)
                 .Nullable()
                 .WithDefaultValue(null)
             .WithColumn("created_at")

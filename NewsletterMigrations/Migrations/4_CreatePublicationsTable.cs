@@ -14,7 +14,7 @@ public class CreatePublicationsTable : Migration
                 .NotNullable()
                 .PrimaryKey()
             .WithColumn("title")
-                .AsString(512)
+                .AsString(Publication.TitleMaxLength)
                 .NotNullable()
             .WithColumn("content")
                 .AsString(int.MaxValue)

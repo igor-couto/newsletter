@@ -20,6 +20,7 @@ public class CreatePublicationDeliveriesTable : Migration
                 .AsGuid()
                 .NotNullable()
                 .ForeignKey("publications", "id")
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade)
             .WithColumn("status_id")
                 .AsInt16()
                 .NotNullable()
