@@ -25,7 +25,7 @@ public static class HealthCheckConfiguration
             .AddHealthChecks()
             .AddCheck("Web API", () => HealthCheckResult.Healthy("The web api application is up and running"))
             .AddNpgSql(
-                connectionString: connectionStringsOptions.DefaultConnection,
+                connectionString: connectionStringsOptions.DefaultConnection!,
                 name: "PostgreSQL Database",
                 failureStatus: HealthStatus.Unhealthy,
                 timeout: TimeSpan.FromSeconds(5),
