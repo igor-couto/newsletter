@@ -7,10 +7,6 @@ builder
     .AddLogging()
     .AddKestrelConfiguration();
 
-
-var connectionStringssss = builder.Configuration.GetConnectionString("DefaultConnection");
-Console.WriteLine($"Connection String: {connectionStringssss}");
-
 builder.Services
     .AddSerializationConfiguration()
     .AddOptions(builder.Configuration)
