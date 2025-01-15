@@ -21,3 +21,6 @@ bld/
 
 # Zip Files
 *.zip
+
+# Auto generated specflow code 
+*.feature.cs
