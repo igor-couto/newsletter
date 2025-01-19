@@ -11,19 +11,20 @@ on:
       - 'docs/**'
 
 jobs:
-  name: Tests
-  runs-on: ubuntu-latest
-  steps:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
 
-    - name: 🛠️ Checkout Repository
-      uses: actions/checkout@v4
+      - name: 🛠️ Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: ⚙️ Setup .NET 9 SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.x
+      - name: ⚙️ Setup .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.x
 
-    - name: 🧪 Testing
-      run: |
-        cd Tests/
-        dotnet test
+      - name: 🧪 Testing
+        run: |
+          cd Tests/
+          dotnet test
