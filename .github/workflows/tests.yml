@@ -4,11 +4,13 @@ on:
   push:
     branches: [ "main" ]
     paths-ignore:
-      - 'README.md'
-      - 'CODE_OF_CONDUCT.md'
-      - 'SECURITY.md'
-      - 'LICENCE.md'
+      - '.github/**'
       - 'docs/**'
+      - '.gitignore'
+      - 'CODE_OF_CONDUCT.md'
+      - 'LICENCE.md'
+      - 'README.md'
+      - 'SECURITY.md'
 
 jobs:
   tests:

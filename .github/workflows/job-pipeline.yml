@@ -3,13 +3,10 @@ name: Web API CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
-    paths-ignore:
-      - 'README.md'
-      - 'CODE_OF_CONDUCT.md'
-      - 'SECURITY.md'
-      - 'LICENCE.md'
-      - 'docs/**'
-
+    paths:
+      - 'NewsletterSDK/**'
+      - 'NewsletterWorker/**'
+      - '.github/workflows/job-pipeline.yml'
 jobs:
   build:
     name: Build
