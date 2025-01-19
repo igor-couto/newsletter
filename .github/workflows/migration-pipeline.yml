@@ -1,0 +1,42 @@
+name: Migrations
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'NewsletterMigrations/**'
+      - '.github/workflows/migration-pipeline.yml'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛠️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.x
+          
+      - name: 📦 Restore Dependencies
+        run: |
+          dotnet restore ./NewsletterSDK
+          
+      - name: 🏗️ Build Project
+        run: | 
+          echo "${{ github.ref }}"
+          dotnet build NewsletterMigrations --no-restore
+
+  apply:
+    name: Apply Migrations
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚀 Run migrations
+        env:
+          SSH_HOST: ${{ secrets.CONNECTION_STRING }}
+        run: |
+          cd NewsletterMigrations
+          dotnet run NewsletterMigrations --no-restore

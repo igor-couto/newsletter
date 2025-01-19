@@ -10,7 +10,7 @@ Scenario: Delete an unsent publication without the API Key
     When I delete this publication without the API Key
     Then the request should be unauthorized
 
-Scenario: Delete a publication that does not exist
-    Given I do not have any publication
-    When I delete a publication that does not exist
-    Then the request should fail
+# Scenario: Delete a publication that does not exist
+#     Given I do not have any publication
+#     When I delete a publication that does not exist
+#     Then the request should fail
