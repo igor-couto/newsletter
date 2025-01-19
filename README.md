@@ -1,6 +1,8 @@
 # Newsletter Application
 
-[![CI/CD Pipeline](https://github.com/igor-couto/newsletter/actions/workflows/pipeline.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/pipeline.yml)
+[![Web API CI/CD Pipeline](https://github.com/igor-couto/newsletter/actions/workflows/job-pipeline.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/job-pipeline.yml)
+[![Migrations](https://github.com/igor-couto/newsletter/actions/workflows/migration-pipeline.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/migration-pipeline.yml)
+[![Tests](https://github.com/igor-couto/newsletter/actions/workflows/tests.yml/badge.svg)](https://github.com/igor-couto/newsletter/actions/workflows/tests.yml)
 
 This repository contains a complete newsletter management system. Below is an overview of the project and its functionality.
 You can run it locally or visit this publised instance here:
